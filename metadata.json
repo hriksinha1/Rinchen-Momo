@@ -1,0 +1,6 @@
+{
+  "name": "Rinchen's Momo",
+  "description": "Authentic Himalayan Momos in Kolkata. From Sikkim's kitchen, built on Kolkata's streets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

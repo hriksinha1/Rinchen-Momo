@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-yellow: #F5C842;
+  --color-brand-yellow-deep: #D4A017;
+  --color-brand-yellow-pale: #FDF3C0;
+  --color-brand-red: #D4281E;
+  --color-brand-red-deep: #A81E16;
+  --color-brand-red-warm: #F0604A;
+  
+  --color-bg-base: #FAF7F0;
+  --color-bg-card: #FFFFFF;
+  --color-bg-dark: #1A1208;
+  --color-bg-muted: #F0EBE0;
+
+  --color-text-primary: #1A1208;
+  --color-text-secondary: #5C4A32;
+  --color-text-muted: #9E8A72;
+  --color-text-inverse: #FAF7F0;
+  --color-text-on-yellow: #1A1208;
+  --color-text-on-red: #FFFFFF;
+
+  --color-border: #E8E0D0;
+  --color-border-strong: #C4B89A;
+
+  --color-focus-ring: #F5C842;
+
+  --font-display: "Fraunces", serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  --shadow-sm: 0 1px 3px rgba(26,18,8,0.08);
+  --shadow-md: 0 4px 12px rgba(26,18,8,0.10);
+  --shadow-lg: 0 12px 32px rgba(26,18,8,0.12);
+  --shadow-hover: 0 8px 24px rgba(26,18,8,0.16);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+@layer base {
+  :root {
+    --nav-height: 80px;
+    --nav-height-scrolled: 64px;
+    --announcement-height: 36px;
+    --header-total-height: var(--nav-height); /* Update dynamically if needed, but we'll use this for scroll margin */
+    --motion-instant: 80ms;
+    --motion-fast: 180ms;
+    --motion-medium: 300ms;
+    --motion-slow: 500ms;
+    --motion-hero: 1200ms;
+  }
+  
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  ::selection {
+    background-color: var(--color-brand-yellow);
+    color: var(--color-text-on-yellow);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  html {
+    scroll-padding-top: var(--header-total-height);
+  }
+  .container--narrow {
+    max-width: 820px;
+    margin-inline: auto;
+  }
+  .reveal-initial {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity var(--motion-slow) ease-out, transform var(--motion-slow) ease-out;
+  }
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
